@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Allow importing `awslambdaric` from lambda layer
+export PYTHONPATH=$PYTHONPATH:/opt/python/libs
+
+# Allow importing `boto3` from lambda runtime environment
+export PYTHONPATH=$PYTHONPATH:/var/runtime
+
+# Bootstrap lambda custom runtime
+exec /var/lang/bin/python3.9 /opt/python/bootstrap.py
